@@ -1,11 +1,12 @@
 require 'calculator'
 
 describe Calculator do
+  subject(:calc) { described_class.new }
+
   context '#sum' do
     context 'with positive numbers' do
       it 'sum the numbers' do
-        calculator = Calculator.new
-        result = calculator.sum(10, 10)
+        result = subject.sum(10, 10)
 
         expect(result).to eq(20)
       end
@@ -13,8 +14,7 @@ describe Calculator do
 
     context 'with positive and negative numbers' do
       it 'sum the numbers' do
-        calculator = Calculator.new
-        result = calculator.sum(-8, 10)
+        result = subject.sum(-8, 10)
 
         expect(result).to eq(2)
       end
@@ -22,8 +22,7 @@ describe Calculator do
 
     context 'with negative numbers' do
       it 'sum the numbers' do
-        calculator = Calculator.new
-        result = calculator.sum(-10, -10)
+        result = subject.sum(-10, -10)
 
         expect(result).to eq(-20)
       end
