@@ -10,6 +10,10 @@ describe Calculator do
 
         expect(result).to eq(20)
       end
+
+      xit 'wip test' do
+		     expect(result).to eq(999)
+      end
     end
 
     context 'with positive and negative numbers' do
