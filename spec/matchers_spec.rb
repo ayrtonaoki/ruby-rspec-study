@@ -1,6 +1,6 @@
 describe 'Matchers' do
-  context '#equal e #be (identidade de objeto)' do
-    it 'usa equal para comparar objetos' do
+  context '#equal and #be (object identity)' do
+    it 'uses equal to compare objects' do
       a = 'hello'
       b = 'hello'
       c = a
@@ -9,7 +9,7 @@ describe 'Matchers' do
       expect(a).not_to equal(b)
     end
 
-    it 'usa be como atalho para equal' do
+    it 'uses be as a shortcut for equal' do
       x = [1, 2, 3]
       y = [1, 2, 3]
       z = x
@@ -19,13 +19,13 @@ describe 'Matchers' do
     end
   end
 
-  context '#eql (valor + tipo)' do
-    it "compara inteiros e floats" do
+  context '#eql (value + type)' do
+    it 'compares integers and floats' do
       expect(1).not_to eql(1.0)
       expect(1).to eql(1)
     end
 
-    it "compara strings" do
+    it 'compares strings' do
       a = "ruby"
       b = "ruby"
       c = :ruby.to_s
@@ -34,31 +34,31 @@ describe 'Matchers' do
       expect(a).to eql(c)
     end
 
-    it "falha com tipos diferentes" do
+    it 'fails with different types' do
       expect("1").not_to eql(1)
     end
   end
 
-  context '#eq (valor)' do
-    it "compara inteiros e floats" do
+  context '#eq (value)' do
+    it 'compares integers and floats' do
       expect(1).to eq(1.0)
     end
 
-    it "compara strings com o mesmo conteúdo" do
+    it 'compares strings with the same content' do
       a = "ruby"
       b = "ruby"
 
       expect(a).to eq(b)
     end
 
-    it "compara arrays com os mesmos valores" do
+    it 'compares arrays with the same values' do
       x = [1, 2, 3]
       y = [1, 2, 3]
 
       expect(x).to eq(y)
     end
 
-    it "não passa com valores diferentes" do
+    it 'does not pass with different values' do
       expect(5).not_to eq(10)
     end
   end
