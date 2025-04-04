@@ -62,4 +62,30 @@ describe 'Matchers' do
       expect(5).not_to eq(10)
     end
   end
+
+  context '#be_truthy' do
+    it 'checks truthy values' do
+      expect(1.odd?).to be_truthy
+      expect(2.odd?).not_to be true
+      expect([]).to be_truthy
+    end
+  end
+
+  context '#be_falsey' do
+    it 'checks falsey values' do
+      expect(1.even?).to be_falsey
+      expect(2.even?).not_to be false
+      expect(nil).to be_falsey
+    end
+  end
+
+  context '#be_nil' do
+    it 'checks nil values' do
+      nil_var = nil
+
+      expect(nil).to be_nil
+      expect('hello').not_to be_nil
+      expect(nil_var).to be nil
+    end
+  end
 end
