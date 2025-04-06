@@ -1,5 +1,5 @@
 describe 'Matchers' do
-  context '#equal and #be (object identity)' do
+  context '#equal / #be (object identity)' do
     it 'uses equal to compare objects' do
       a = 'hello'
       b = 'hello'
@@ -124,6 +124,30 @@ describe 'Matchers' do
       expect("RSpec is great").to end_with("great")
       expect([1, 2, 3]).to end_with(3)
       expect([:a, :b, :c]).to end_with(:b, :c)
+    end
+  end
+
+  context '#be_instance_of' do
+    it 'checks if the object is exactly of a given class' do
+      expect("hello").to be_instance_of(String)
+      expect("hello").not_to be_instance_of(Object)
+    end
+  end
+
+  context '#be_kind_of / #be_an / #be_a' do
+    it 'checks if the object is of a class or subclass (considers inheritance)' do
+      expect("hello").to be_kind_of(String)
+      expect("hello").to be_kind_of(Object)   # String < Object
+      expect(1).to be_an(Integer)
+      expect(:hello).to be_a(Symbol)
+    end
+  end
+
+  context '#respond_to' do
+    it 'checks if the object responds to a method' do
+      expect("hello").to respond_to(:length)
+      expect("hello").to respond_to(:upcase)
+      expect("hello").not_to respond_to(:non_existent_method)
     end
   end
 end
