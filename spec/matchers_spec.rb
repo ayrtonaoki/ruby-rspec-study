@@ -88,4 +88,42 @@ describe 'Matchers' do
       expect(nil_var).to be nil
     end
   end
+
+  context '#be_between' do
+    it 'checks inclusive range' do
+      expect(5).to be_between(1, 5).inclusive
+      expect(1).to be_between(1, 5).inclusive
+      expect(3).to be_between(1, 5).inclusive
+    end
+
+    it 'checks exclusive range' do
+      expect(3).to be_between(1, 5).exclusive
+      expect(1).not_to be_between(1, 5).exclusive
+      expect(5).not_to be_between(1, 5).exclusive
+    end
+  end
+
+  context '#match' do
+    it 'matches a string with a regex' do
+      expect("hello world").to match(/world/)
+      expect("version 3.0").to match(/version \d/)
+      expect("abc123").not_to match(/xyz/)
+    end
+  end
+
+  context '#start_with' do
+    it 'checks if a value starts with a given prefix' do
+      expect("RSpec is great").to start_with("RSpec")
+      expect([1, 2, 3]).to start_with(1)
+      expect([:a, :b, :c]).to start_with(:a, :b)
+    end
+  end
+
+  context '#end_with' do
+    it 'checks if a value ends with a given suffix' do
+      expect("RSpec is great").to end_with("great")
+      expect([1, 2, 3]).to end_with(3)
+      expect([:a, :b, :c]).to end_with(:b, :c)
+    end
+  end
 end
