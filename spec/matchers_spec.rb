@@ -161,11 +161,13 @@ describe 'Matchers' do
     end
   end
 
-  context '#raise_exception' do
+  context '#raise_exception / #raise_error' do
     it 'checks if some test have raised an error' do
       person = Person.new('John', 0)
 
-      expect{ person.divide_numbers(5, 0) }.to raise_exception
+      expect { person.divide_numbers(5, 0) }.to raise_exception(ZeroDivisionError)
+      expect { person.divide_numbers(5, 0) }.to raise_error("divided by 0")
+      expect { person.divide_numbers(5, 0) }.to raise_error(ZeroDivisionError, "divided by 0")
     end
   end
 end
