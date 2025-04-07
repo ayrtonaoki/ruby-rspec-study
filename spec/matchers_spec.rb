@@ -189,4 +189,11 @@ describe 'Matchers' do
       expect([:a, :b]).to contain_exactly(:b, :a)
     end
   end
+
+  context '#cover' do
+    it 'checks if a Range covers some values' do
+      expect(1..10).to cover(5)
+      expect(1..10).to cover(1, 3, 10)
+    end
+  end
 end
