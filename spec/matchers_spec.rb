@@ -160,4 +160,12 @@ describe 'Matchers' do
       expect(person).to have_attributes(name: 'John', age: 30)
     end
   end
+
+  context '#raise_exception' do
+    it 'checks if some test have raised an error' do
+      person = Person.new('John', 0)
+
+      expect{ person.divide_numbers(5, 0) }.to raise_exception
+    end
+  end
 end
