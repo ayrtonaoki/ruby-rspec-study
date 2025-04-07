@@ -170,4 +170,23 @@ describe 'Matchers' do
       expect { person.divide_numbers(5, 0) }.to raise_error(ZeroDivisionError, "divided by 0")
     end
   end
+
+  context '#include' do
+    it 'checks if an object has a specific value' do
+      expect([1,2,3]).to include(2)
+      expect([1,2,3]).to include(1,3)
+    end
+  end
+
+  context '#match_array' do
+    it 'compares if 2 arrays have the same values' do
+      expect([1, 2, 3]).to match_array([3, 2, 1])
+    end
+  end
+
+  context '#contain_exactly' do
+    it 'checks if an array have exactly specific values' do
+      expect([:a, :b]).to contain_exactly(:b, :a)
+    end
+  end
 end
