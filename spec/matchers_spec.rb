@@ -1,3 +1,5 @@
+require 'person'
+
 describe 'Matchers' do
   context '#equal / #be (object identity)' do
     it 'uses equal to compare objects' do
@@ -148,6 +150,14 @@ describe 'Matchers' do
       expect("hello").to respond_to(:length)
       expect("hello").to respond_to(:upcase)
       expect("hello").not_to respond_to(:non_existent_method)
+    end
+  end
+
+  context '#have_attributes' do
+    it 'checks if the object has correct attributes' do
+      person = Person.new('John', 30)
+
+      expect(person).to have_attributes(name: 'John', age: 30)
     end
   end
 end
