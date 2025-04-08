@@ -196,4 +196,11 @@ describe 'Matchers' do
       expect(1..10).to cover(1, 3, 10)
     end
   end
+
+  context '#and / #or' do
+    it 'combine two or more matchers' do
+      expect('Ayrton').to start_with('A').and end_with('n')
+      expect('ayrton').to start_with('A').or start_with('a')
+    end
+  end
 end
