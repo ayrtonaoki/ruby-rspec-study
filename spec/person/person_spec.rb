@@ -4,6 +4,8 @@ describe Person, "Class that represents a person" do
   subject(:person) { Person.new('Ayrton', 29) }
 
   context '#say_hi' do
+    it { is_expected.to have_attributes(name: 'Ayrton', age: 29) }
+
     it 'returns string with the passed value' do
       response = subject.say_hi('John')
 
