@@ -203,4 +203,11 @@ describe 'Matchers' do
       expect('ayrton').to start_with('A').or start_with('a')
     end
   end
+
+  context '#be_within' do
+    it 'checks whether a number is within interval of values' do
+      expect(3.5).to be_within(0.3).of(3.7)
+      expect(3.5).to be_within(0.5).of(4)
+    end
+  end
 end
