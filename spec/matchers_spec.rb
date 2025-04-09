@@ -210,4 +210,14 @@ describe 'Matchers' do
       expect(3.5).to be_within(0.5).of(4)
     end
   end
+
+  context '#satisfy' do
+    it 'defines a condition block to checks the test' do
+      expect(9).to satisfy { |n| n % 3 == 0 }
+
+      expect(25).to satisfy('be a multiple of 5') do |n|
+        n % 5 == 0
+      end
+    end
+  end
 end
