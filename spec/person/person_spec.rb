@@ -1,5 +1,12 @@
 require 'person'
 
+shared_examples 'mood' do |feeling|
+  it "changes mood to #{feeling}" do
+    person.send("#{feeling}!")
+    expect(person.mood).to eq("#{feeling.capitalize}")
+  end
+end
+
 describe Person, "Class that represents a person" do
   subject(:person) { Person.new('Ayrton', 29) }
 
@@ -27,6 +34,12 @@ describe Person, "Class that represents a person" do
       expect{ person.birthday }.to change{ person.age }.by(1)
       expect{ person.birthday }.to change{ person.age }.from(30).to(31)
     end
+  end
+
+  context '#shared_examples' do
+    it_behaves_like 'mood', :happy
+    it_behaves_like 'mood', :sad
+    it_behaves_like 'mood', :ok
   end
 
   # context '#aggregate_failures' do

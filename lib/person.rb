@@ -1,10 +1,11 @@
 class Person
-  attr_accessor :name, :age, :height
+  attr_accessor :name, :age, :height, :mood
 
-  def initialize(name, age, height = 1.5)
+  def initialize(name, age, height = 1.5, mood = nil)
     @name = name
     @age = age
     @height = height
+    @mood = mood
   end
 
   def say_hi(name)
@@ -21,5 +22,17 @@ class Person
 
   def birthday
     @age += 1
+  end
+
+  def happy!
+    @mood = "Happy"
+  end
+
+  def sad!
+    @mood = "Sad"
+  end
+
+  def ok!
+    @mood = "Ok"
   end
 end
