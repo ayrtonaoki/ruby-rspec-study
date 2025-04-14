@@ -28,4 +28,13 @@ describe Person, "Class that represents a person" do
       expect{ person.birthday }.to change{ person.age }.from(30).to(31)
     end
   end
+
+  # context '#aggregate_failures' do
+  #   it 'execute all tests and show all errors together', :aggregate_failures do
+  #     expect(5*1).to eq(5)
+  #     expect(5*2).to eq(15)
+  #     expect(5*3).to eq(10)
+  #     expect(5*4).to eq(20)
+  #   end
+  # end
 end
