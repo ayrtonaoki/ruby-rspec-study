@@ -12,4 +12,12 @@ describe Person, "Class that represents a person" do
       expect(response).to eq("Hi John, my name is Ayrton and I have 29 years old")
     end
   end
+
+  context 'dog age' do
+    let(:dog_age) { subject.age / 7 }
+
+    it 'returns person age divided by 7' do
+      expect(dog_age).to eq(4)
+    end
+  end
 end
