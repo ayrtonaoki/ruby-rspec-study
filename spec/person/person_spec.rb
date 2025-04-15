@@ -42,19 +42,6 @@ describe Person, "Class that represents a person" do
     it_behaves_like 'mood', :ok
   end
 
-  context '#double e #stub' do
-    it 'creates fake object' do
-      tom = double('Cat')
-      jerry = double('Mouse')
-
-      allow(tom).to receive_messages(color: 'Grey', food: 'Milk')
-      allow(jerry).to receive(:color).and_return('Brown')
-      allow(jerry).to receive(:food).and_return('Cheese')
-
-      expect(jerry.food).to eq('Cheese')
-    end
-  end
-
   # context '#aggregate_failures' do
   #   it 'execute all tests and show all errors together', :aggregate_failures do
   #     expect(5*1).to eq(5)
