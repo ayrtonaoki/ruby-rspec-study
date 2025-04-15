@@ -42,7 +42,7 @@ describe Person, "Class that represents a person" do
     it_behaves_like 'mood', :ok
   end
 
-  context '#double' do
+  context '#double e #stub' do
     it 'creates fake object' do
       tom = double('Cat')
       jerry = double('Mouse')
